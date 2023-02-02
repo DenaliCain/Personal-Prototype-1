@@ -29,6 +29,13 @@ public class TitleUIManager : MonoBehaviour
         SceneManager.LoadScene(1);
         
     }
+    private void OnDestroy()
+    {
+        if(DifficultyPicker != null)
+        {
+            DifficultyPicker.onDifficultyChanged -= NewDifficultySelected;
+        }
+    }
     public void Exit()
     {
 #if UNITY_EDITOR
